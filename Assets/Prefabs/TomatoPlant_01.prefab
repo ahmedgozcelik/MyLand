@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c378bf1d7dbda44a93da608629c7948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxGO: {fileID: 175696016625664488, guid: 76bd961a0f00b744b881192c721c5d8b, type: 3}
+  productData: {fileID: 11400000, guid: 405d80d4d2b12ac46a357081743d5019, type: 2}
 --- !u!205 &6658596030289476839
 LODGroup:
   m_ObjectHideFlags: 0

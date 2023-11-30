@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ProductPlantController : MonoBehaviour
 {
-    [SerializeField] private GameObject boxGO;
+    [SerializeField] private ProductData productData;
     private BagController bagController;
 
     private bool isReadyToPick;
@@ -25,11 +26,13 @@ public class ProductPlantController : MonoBehaviour
         if (other.CompareTag("Player") && isReadyToPick) // Player'a temas ettiyse ve toplanmaya hazýrsa
         {
             bagController = other.GetComponent<BagController>();
-            bagController.AddProductToBag(boxGO);
+            bagController.AddProductToBag(productData);
             isReadyToPick = false;
             StartCoroutine(ProductPicked());
         }
     }
+
+
 
     IEnumerator ProductPicked() // Fidenin boyutunu 3 e 1 oranýnda küçültüyoruz. Daha sonra 3 saniye bekliyoruz ve fidenin boyutunu büyütüyoruz. Fide toplanmak için hazýr hale geliyor.
     {
@@ -38,14 +41,19 @@ public class ProductPlantController : MonoBehaviour
         Vector3 targetScale = originalScale / 3;
 
         // Parça parça küçültüyoruz
-        while(timer < duration)
+        //while(timer < duration)
+        //{
+        //    float t = timer / duration;
+        //    Vector3 newScale = Vector3.Lerp(originalScale, targetScale, t); // Lerp fonksiyonu -> originalScale ve targetScale arasýnda t miktarda interpolasyon
+        //    transform.localScale = newScale;
+        //    timer += Time.deltaTime;
+        //    yield return null;
+        //}
+
+        transform.DOScale(targetScale, duration).OnComplete(() => // bu hedefe ulaþtýðýmýzda çalýþtýracaðýmýz kodlar için oncomplete kullandýk.
         {
-            float t = timer / duration;
-            Vector3 newScale = Vector3.Lerp(originalScale, targetScale, t); // Lerp fonksiyonu -> originalScale ve targetScale arasýnda t miktarda interpolasyon
-            transform.localScale = newScale;
-            timer += Time.deltaTime;
-            yield return null;
-        }
+            Debug.Log("scaled");
+        });
 
         //Fidemiz küçüldü
         yield return new WaitForSeconds(5f);
@@ -54,16 +62,21 @@ public class ProductPlantController : MonoBehaviour
         float growBackDuration = 1f;
 
         // Parça parça büyütüyoruz
-        while(timer < growBackDuration)
-        {
-            float t = timer / growBackDuration;
-            Vector3 newScale = Vector3.Lerp(targetScale, originalScale, t);
-            transform.localScale = newScale;
-            timer += Time.deltaTime;
-            yield return null;
-        }
+        //while(timer < growBackDuration)
+        //{
+        //    float t = timer / growBackDuration;
+        //    Vector3 newScale = Vector3.Lerp(targetScale, originalScale, t);
+        //    transform.localScale = newScale;
+        //    timer += Time.deltaTime;
+        //    yield return null;
+        //}
 
-        isReadyToPick = true;
+        transform.DOScale(originalScale, growBackDuration).OnComplete(() =>
+        {
+            isReadyToPick = true;
+        });
+
+        
         yield return null;
     }
 }
