@@ -19,9 +19,13 @@ public class BagController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Respawn"))
+        if (other.CompareTag("ShopPoint"))
         {
-            
+            for (int i = productDataList.Count - 1; i >= 0; i--)
+            {
+                Destroy(bag.transform.GetChild(i).gameObject);
+                productDataList.RemoveAt(i);
+            }
         }
     }
 
