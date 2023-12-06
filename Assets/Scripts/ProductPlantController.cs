@@ -26,9 +26,13 @@ public class ProductPlantController : MonoBehaviour
         if (other.CompareTag("Player") && isReadyToPick) // Player'a temas ettiyse ve toplanmaya hazýrsa
         {
             bagController = other.GetComponent<BagController>();
-            bagController.AddProductToBag(productData);
-            isReadyToPick = false;
-            StartCoroutine(ProductPicked());
+
+            if (bagController.IsEmptySpace())
+            {
+                bagController.AddProductToBag(productData);
+                isReadyToPick = false;
+                StartCoroutine(ProductPicked());
+            }
         }
     }
 
