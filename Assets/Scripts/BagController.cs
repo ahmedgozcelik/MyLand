@@ -7,11 +7,16 @@ public class BagController : MonoBehaviour
 {
     [SerializeField] private Transform bag;
     [SerializeField] TextMeshPro maxText;
+
+    CashManager cashManager;
+
     public List<ProductData> productDataList;
     private Vector3 productSize;
     int maxBagCapacity;
     void Start()
     {
+        cashManager = CashManager.instance;
+
         maxBagCapacity = 5;
     }
 
@@ -26,11 +31,18 @@ public class BagController : MonoBehaviour
         {
             for (int i = productDataList.Count - 1; i >= 0; i--)
             {
+                SellProductsToShop(productDataList[i]);
                 Destroy(bag.transform.GetChild(i).gameObject);
                 productDataList.RemoveAt(i);
             }
             ControlBagCapacity();
         }
+    }
+
+    private void SellProductsToShop(ProductData productData)
+    {
+        // cashManager'a söyle ürün satýldý.
+        cashManager.ExchangeProduct(productData);
     }
 
     public void AddProductToBag(ProductData productData)
