@@ -373,6 +373,7 @@
 "Assets/Scripts/CashManager.cs"
 "Assets/Scripts/Data/ProductData.cs"
 "Assets/Scripts/JoystickController.cs"
+"Assets/Scripts/LockedUnitControl.cs"
 "Assets/Scripts/Player/PlayerAnimator.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/ProductPlantController.cs"
