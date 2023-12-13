@@ -378,6 +378,7 @@
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/ProductPlantController.cs"
 "Assets/Scripts/UIManager.cs"
+"Assets/Scripts/UnLockBakeryUnitControl.cs"
 -langversion:9.0
 
 /deterministic

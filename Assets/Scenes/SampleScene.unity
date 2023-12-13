@@ -290,7 +290,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598722}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.00000001558191, z: 0.0000000072981776, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581922, z: -0.0000000072981816, w: 0.90558946}
   m_LocalPosition: {x: -0.0044178334, y: 12.130014, z: -9.9984455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &18724050
 Transform:
   m_ObjectHideFlags: 0
@@ -368,10 +368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46ae2b4a035f3b4faaa754f65757a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 12
+  price: 50
   priceText: {fileID: 1608807701}
   lockedUnit: {fileID: 18724049}
-  unlockedUnit: {fileID: 1570217989}
+  unlockedUnit: {fileID: 195557922}
 --- !u!1 &48834818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,12 +1256,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.85
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_Radius: 0.3
+  m_SlopeLimit: 0.1
+  m_StepOffset: 0.01
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.23, z: 0}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!114 &165932768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1363,9 +1363,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 195557923}
+  - component: {fileID: 195557925}
+  - component: {fileID: 195557924}
   m_Layer: 0
   m_Name: UnLockObjects
-  m_TagString: Untagged
+  m_TagString: UnLockBakeryUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1390,6 +1392,42 @@ Transform:
   - {fileID: 1666135762}
   m_Father: {fileID: 7805107419120200909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &195557924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195557922}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.415022, y: 6.1961393, z: 10.231602}
+  m_Center: {x: 1.707511, y: 1.9019303, z: 0.11580086}
+--- !u!114 &195557925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195557922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d9fb3e9b1981b409009eb0efeb90f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bakeryText: {fileID: 680615991}
+  maxStoredProductCount: 15
+  productType: 0
 --- !u!1 &200647421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,7 +3791,7 @@ GameObject:
   - component: {fileID: 680615992}
   - component: {fileID: 680615991}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BakeryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5588,7 +5626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.00000001558191, z: 0.0000000072981776, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581922, z: -0.0000000072981816, w: 0.90558946}
   m_LocalPosition: {x: -0.0044178334, y: 12.130014, z: -9.9984455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8590,11 +8628,6 @@ Transform:
   - {fileID: 279731915}
   m_Father: {fileID: 130468626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1570217989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7603935526838510751, guid: 7af294257dc13e3459e8bb3120b8b4d4, type: 3}
-  m_PrefabInstance: {fileID: 259347632513452127}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576630767
 GameObject:
   m_ObjectHideFlags: 0

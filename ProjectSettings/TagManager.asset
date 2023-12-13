@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TomatoPlant
   - ShopPoint
+  - UnLockBakeryUnit
   layers:
   - Default
   - TransparentFX
