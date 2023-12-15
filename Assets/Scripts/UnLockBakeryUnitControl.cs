@@ -24,4 +24,21 @@ public class UnLockBakeryUnitControl : MonoBehaviour
     {
         bakeryText.text = storedProductCount.ToString() + "/" + maxStoredProductCount.ToString();
     }
+
+    public ProductType GetNeededProductType()
+    {
+        return productType;
+    }
+
+    public bool StoreProduct()
+    {
+        if(maxStoredProductCount == storedProductCount)
+        {
+            return false;
+        }
+        storedProductCount++;
+        DisplayProductCount();
+        return true;
+    }
+   
 }
