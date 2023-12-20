@@ -9,6 +9,7 @@ public class LockedUnitControl : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private int price;
+    [SerializeField] private int id;
 
     [Header("Objects")]
     [SerializeField] private TextMeshPro priceText;
@@ -16,10 +17,12 @@ public class LockedUnitControl : MonoBehaviour
     [SerializeField] private GameObject unlockedUnit;
 
     private bool isPurchased;
+    private string keyUnit = "keyUnit";
     void Start()
     {
         cashManager = CashManager.instance;
         priceText.text = price.ToString();
+        LoadUnit();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class LockedUnitControl : MonoBehaviour
     {
         if (cashManager.TryByThisUnit(price)){
             Unlock();
+            SaveUnit();
         }
         // parasý var mý kontrol et, varsa ürünü aç
     }
@@ -49,5 +53,22 @@ public class LockedUnitControl : MonoBehaviour
         isPurchased = true;
         lockedUnit.SetActive(false);
         unlockedUnit.SetActive(true);
+    }
+
+    private void SaveUnit()
+    {
+        string key = keyUnit + id.ToString();
+        PlayerPrefs.SetString(key, "saved");
+    }
+
+    private void LoadUnit()
+    {
+        string key = keyUnit + id.ToString();
+        string status = PlayerPrefs.GetString(key);
+
+        if (status.Equals("saved"))
+        {
+            Unlock();
+        }
     }
 }
