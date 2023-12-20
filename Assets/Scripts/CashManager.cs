@@ -9,7 +9,7 @@ public class CashManager : MonoBehaviour
     UIManager uiManager;
 
     private int coins;
-
+    private string keyCoins = "keyCoins";
 
     private void Awake()
     {
@@ -26,6 +26,8 @@ public class CashManager : MonoBehaviour
     private void Start()
     {
         uiManager = UIManager.instance;
+        LoadCash();
+        DisplayCoins();
     }
 
     public void ExchangeProduct(ProductData productData)
@@ -42,6 +44,7 @@ public class CashManager : MonoBehaviour
     private void DisplayCoins()
     {
         uiManager.ShowCoinCountOnScreen(coins);
+        SaveCash();
     }
 
     private void SpendCoin(int price)
@@ -64,5 +67,15 @@ public class CashManager : MonoBehaviour
     public int GetCoins()
     {
         return coins;
+    }
+
+    private void LoadCash()
+    {
+        coins = PlayerPrefs.GetInt(keyCoins, 0);
+    }
+
+    private void SaveCash()
+    {
+        PlayerPrefs.SetInt(keyCoins, coins);
     }
 }
