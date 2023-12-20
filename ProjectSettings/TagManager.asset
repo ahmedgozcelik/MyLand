@@ -7,6 +7,7 @@ TagManager:
   - TomatoPlant
   - ShopPoint
   - UnLockBakeryUnit
+  - Coin
   layers:
   - Default
   - TransparentFX

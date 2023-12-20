@@ -371,6 +371,7 @@
 "Assets/AssetStore/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs"
 "Assets/Scripts/BagController.cs"
 "Assets/Scripts/CashManager.cs"
+"Assets/Scripts/CoinControl.cs"
 "Assets/Scripts/Data/ProductData.cs"
 "Assets/Scripts/JoystickController.cs"
 "Assets/Scripts/LockedUnitControl.cs"

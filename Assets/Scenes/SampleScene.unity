@@ -1390,6 +1390,7 @@ Transform:
   - {fileID: 1963610843}
   - {fileID: 5006962386342964734}
   - {fileID: 1666135762}
+  - {fileID: 678883702}
   m_Father: {fileID: 7805107419120200909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &195557924
@@ -1428,6 +1429,9 @@ MonoBehaviour:
   bakeryText: {fileID: 680615991}
   maxStoredProductCount: 15
   productType: 0
+  useProductInSeconds: 5
+  coinTransform: {fileID: 678883702}
+  coinGO: {fileID: 1635861433050857864, guid: b6a8e747719116147a4350f5fb92135f, type: 3}
 --- !u!1 &200647421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3782,37 @@ Transform:
   m_Children:
   - {fileID: 500104541}
   m_Father: {fileID: 92734923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &678883701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678883702}
+  m_Layer: 0
+  m_Name: CoinPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &678883702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678883701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.15, y: 1.49, z: -1.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 195557923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &680615989
 GameObject:
@@ -13792,7 +13827,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2167338751948537377, guid: adbd3be02901f4a42a341b0c1c9820f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.07
+      value: 12.8
       objectReference: {fileID: 0}
     - target: {fileID: 2167338751948537377, guid: adbd3be02901f4a42a341b0c1c9820f4, type: 3}
       propertyPath: m_LocalPosition.y

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\BagController.cs" />
     <Compile Include="Assets\AssetStore\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Scripts\CoinControl.cs" />
     <Compile Include="Assets\AssetStore\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\UnLockBakeryUnitControl.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />

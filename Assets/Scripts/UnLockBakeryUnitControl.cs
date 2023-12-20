@@ -9,6 +9,11 @@ public class UnLockBakeryUnitControl : MonoBehaviour
     [SerializeField] private int maxStoredProductCount;
     [SerializeField] private ProductType productType;
 
+    [SerializeField] private int useProductInSeconds = 10;
+    [SerializeField] private Transform coinTransform;
+    [SerializeField] private GameObject coinGO;
+
+    private float time;
     private int storedProductCount;
     void Start()
     {
@@ -17,7 +22,16 @@ public class UnLockBakeryUnitControl : MonoBehaviour
 
     void Update()
     {
-        
+        if(storedProductCount > 0)
+        {
+            time += Time.deltaTime;  
+
+            if(time >= useProductInSeconds)
+            {
+                time = 0.0f;
+                UseProduct();
+            }
+        }
     }
 
     private void DisplayProductCount()
@@ -39,6 +53,21 @@ public class UnLockBakeryUnitControl : MonoBehaviour
         storedProductCount++;
         DisplayProductCount();
         return true;
+    }
+
+    private void UseProduct()
+    {
+        storedProductCount--;
+        DisplayProductCount();
+        CreateCoin();
+    }
+
+    private void CreateCoin()
+    {
+        Vector3 position = Random.insideUnitSphere * 1f; // belirlenen yerin çevresinde random bir noktasýnda oluþur
+        Vector3 InstantiatePos = coinTransform.position + position;
+
+        Instantiate(coinGO, InstantiatePos, Quaternion.identity);
     }
    
 }
