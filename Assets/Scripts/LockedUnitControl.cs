@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LockedUnitControl : MonoBehaviour
 {
+    AudioManager audioManager;
     CashManager cashManager;
 
     [Header("Settings")]
@@ -20,6 +21,7 @@ public class LockedUnitControl : MonoBehaviour
     private string keyUnit = "keyUnit";
     void Start()
     {
+        audioManager = AudioManager.instance;
         cashManager = CashManager.instance;
         priceText.text = price.ToString();
         LoadUnit();
@@ -42,6 +44,7 @@ public class LockedUnitControl : MonoBehaviour
     private void UnLockUnit()
     {
         if (cashManager.TryByThisUnit(price)){
+            audioManager.PlayAudio(AudiClipType.shopClip);
             Unlock();
             SaveUnit();
         }

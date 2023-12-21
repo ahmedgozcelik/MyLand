@@ -9,12 +9,14 @@ public class BagController : MonoBehaviour
     [SerializeField] TextMeshPro maxText;
 
     CashManager cashManager;
+    AudioManager audioManager;
 
     public List<ProductData> productDataList;
     private Vector3 productSize;
     int maxBagCapacity;
     void Start()
     {
+        audioManager = AudioManager.instance;
         cashManager = CashManager.instance;
 
         maxBagCapacity = 5;
@@ -29,6 +31,7 @@ public class BagController : MonoBehaviour
     {
         if (other.CompareTag("ShopPoint"))
         {
+            PlayShopSound();
             for (int i = productDataList.Count - 1; i >= 0; i--)
             {
                 SellProductsToShop(productDataList[i]);
@@ -146,6 +149,14 @@ public class BagController : MonoBehaviour
         {
             float newYPos = productSize.y * i;
             bag.GetChild(i).transform.localPosition = new Vector3(0, newYPos, 0);
+        }
+    }
+
+    private void PlayShopSound()
+    {
+        if(productDataList.Count > 0)
+        {
+            audioManager.PlayAudio(AudiClipType.shopClip);
         }
     }
 }

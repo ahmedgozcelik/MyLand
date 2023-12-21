@@ -7,11 +7,14 @@ public class ProductPlantController : MonoBehaviour
 {
     [SerializeField] private ProductData productData;
     private BagController bagController;
+    private AudioManager audioManager;
 
     private bool isReadyToPick;
     private Vector3 originalScale;
     void Start()
     {
+        audioManager = AudioManager.instance;
+
         isReadyToPick = true;
         originalScale = transform.localScale;
     }
@@ -29,6 +32,7 @@ public class ProductPlantController : MonoBehaviour
 
             if (bagController.IsEmptySpace())
             {
+                audioManager.PlayAudio(AudiClipType.grabClip);
                 bagController.AddProductToBag(productData);
                 isReadyToPick = false;
                 StartCoroutine(ProductPicked());
