@@ -60,7 +60,7 @@ public class ProductPlantController : MonoBehaviour
 
         transform.DOScale(targetScale, duration).OnComplete(() => // bu hedefe ulaþtýðýmýzda çalýþtýracaðýmýz kodlar için oncomplete kullandýk.
         {
-            Debug.Log("scaled");
+            
         });
 
         //Fidemiz küçüldü

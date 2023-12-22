@@ -371,6 +371,7 @@
 "Assets/AssetStore/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs"
 "Assets/Scripts/BagController.cs"
 "Assets/Scripts/CoinControl.cs"
+"Assets/Scripts/Data/PowerUpData.cs"
 "Assets/Scripts/Data/ProductData.cs"
 "Assets/Scripts/JoystickController.cs"
 "Assets/Scripts/LockedUnitControl.cs"
@@ -379,6 +380,7 @@
 "Assets/Scripts/Managers/UIManager.cs"
 "Assets/Scripts/Player/PlayerAnimator.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
+"Assets/Scripts/PowerUpControl.cs"
 "Assets/Scripts/ProductPlantController.cs"
 "Assets/Scripts/UnLockBakeryUnitControl.cs"
 -langversion:9.0

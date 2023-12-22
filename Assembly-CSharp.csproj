@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\AssetStore\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Scripts\PowerUpControl.cs" />
     <Compile Include="Assets\Scripts\ProductPlantController.cs" />
     <Compile Include="Assets\AssetStore\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\AssetStore\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Managers\CashManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Data\PowerUpData.cs" />
     <Compile Include="Assets\Scripts\BagController.cs" />
     <Compile Include="Assets\AssetStore\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Scripts\CoinControl.cs" />

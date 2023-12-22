@@ -14,12 +14,14 @@ public class BagController : MonoBehaviour
     public List<ProductData> productDataList;
     private Vector3 productSize;
     int maxBagCapacity;
+
+    private string bagCapacityKey = "bagCapacityKey";
     void Start()
     {
         audioManager = AudioManager.instance;
         cashManager = CashManager.instance;
 
-        maxBagCapacity = 5;
+        maxBagCapacity = LoadBagCapacity();
     }
 
     void Update()
@@ -158,5 +160,18 @@ public class BagController : MonoBehaviour
         {
             audioManager.PlayAudio(AudiClipType.shopClip);
         }
+    }
+
+    public void BoostBagCapacity(int boostCount)
+    {
+        maxBagCapacity += boostCount;
+        PlayerPrefs.SetInt(bagCapacityKey, maxBagCapacity);
+        ControlBagCapacity();
+    }
+
+    private int LoadBagCapacity()
+    {
+        int maxBag = PlayerPrefs.GetInt(bagCapacityKey, 5);
+        return maxBag;
     }
 }
